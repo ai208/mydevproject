@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{{weight}}</title>
+</head>
+<body>
+    <h1>{{weight}}</h1>
+    <p>体重 {{weight.weight}}</p>
+    <p>記録した日 {{weight.time}}</p>
+    <p>メモ</p>
+    <p>{{weight.comment}}</p>
+    <a href="{% url 'weight_list'%}">戻る</a>
+
+</body>
+</html>

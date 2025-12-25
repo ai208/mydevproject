@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>記録一覧</title>
+</head>
+<body>
+    <h1>記録一覧</h1>
+    <a href="{% url 'weight_create'%}">新規作成</a>
+    <ul>
+    {% if weight_list %}
+        {% for weight in weight_list %}
+            <li>
+                <a href="{% url 'weight_detail' weight.pk %}">{{weight}}</a>
+                <a href="{% url 'weight_update' weight.pk%}">編集</a>
+                <a href="{% url 'weight_delete' weight.pk%}">削除</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li>データがありません</li>
+    {% endif %}
+    </ul>
+</body>
+</html>
