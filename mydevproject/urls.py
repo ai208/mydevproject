@@ -21,6 +21,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('weightapp/',include('weightapp.urls')),
-    # path('weightapp_cbv/',include('weightapp_cbv.urls')),
+    path('healthcare/',include('weightapp_cbv.urls')),
     path('menu/',views.MenuPageView.as_view(),name='menu'),
 ]
