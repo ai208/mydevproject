@@ -21,10 +21,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b-gw+shd06h1yh%vt_4dp65u==pi+l#7%z!p94b&y=#zti-cu2'
+# 2026年1月4日変更する　publicにするために、変更した。
+import environ
 
+
+env = environ.Env()
+environ.Env.read_env(BASE_DIR / ".env")
+# # --- 診断開始 ---
+# env_path = BASE_DIR / ".env"
+# print("\n" + "="*30)
+# print(f"1. BASE_DIR の場所: {BASE_DIR}")
+# print(f"2. 探しているファイルのフルパス: {env_path}")
+# print(f"3. その場所にファイルは存在するか: {env_path.exists()}")
+
+# # ファイルが存在する場合のみ読み込む
+# if env_path.exists():
+#     environ.Env.read_env(env_path)
+#     print("4. 結果: .envファイルを読み込みました")
+# else:
+#     print("4. 結果: .envファイルが見つからないため、読み込めませんでした")
+# print("="*30 + "\n")
+# settings.py の修正案
+SECRET_KEY = env("DJANGO_SECRET_KEY", default="local-development-only-key")
+DEBUG = env.bool("DEBUG", default=True)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
