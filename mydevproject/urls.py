@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('weightapp/',include('weightapp.urls'))
+    path('weightapp/',include('weightapp.urls')),
+    # path('weightapp_cbv/',include('weightapp_cbv.urls')),
+    path('menu/',views.MenuPageView.as_view(),name='menu'),
 ]
