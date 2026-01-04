@@ -46,7 +46,11 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default="local-development-only-key")
 DEBUG = env.bool("DEBUG", default=True)
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list(
+    "ALLOWED_HOSTS",
+    default=["localhost", "127.0.0.1"]
+)
+
 
 
 # Application definition
