@@ -1,7 +1,8 @@
 # Weight Management App（Django）
 ## 
 このREDEMEは生成AIに作成してもらいました。
-
+## デプロイURL
+https://mydevproject-itqg.onrender.com/menu/
 ## 概要
 このプロジェクトは、**Django を用いた体重管理アプリ**の開発を目的としています。  
 日々の体重記録や BMI 計算、将来的にはグラフ表示などの機能を実装する予定です。
