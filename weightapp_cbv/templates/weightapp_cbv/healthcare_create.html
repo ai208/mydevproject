@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規の記録作成</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "weightapp_cbv/styles.css" %}">
+</head>
+<body>
+    <div class='container'>
+        <h1>体調の新規記録</h1>
+        <hr>
+       <form type="submit" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit" class="btn-primary">新規の記録作成</button>
+       </form>
+       <br>
+        <div class="black-button">
+            <a href="{% url "healthcare_list" %}" class="btn btn-secondary">一覧に戻る</a>
+        </div>
+    </div>
+</body>
+</html>

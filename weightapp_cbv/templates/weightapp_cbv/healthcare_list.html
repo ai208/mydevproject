@@ -10,6 +10,12 @@
     <div class='container'>
         <h1>記録一覧</h1>
         <hr>
+        <div class="healthcare-actions">
+            <a href="{% url "healthcare_create" %}"  class="btn btn-primary">新規の記録作成</a>
+            <a href="{% url "menu" %}"  class="btn btn-secondary">ホームメニューへ</a>
+
+        </div>
+
         <ul class='healthcare-list'>
             {% for healthcare in healthcares %}
             <li>
