@@ -12,13 +12,13 @@
         <hr>
         <div class='healthcare-detail'>
                 <div class='healthcare-date'>作成日{{healthcare.created|date:"Y年m月d日 H:i:s"}}</div>
-                <div class = 'condition'>体調{{healthcare.get_physical_health_display}}, 精神状態{{healthcare.get_mental_health_display}}</div>
+                <div class = 'condition'>体調:{{healthcare.get_physical_health_display}}, 精神状態:{{healthcare.get_mental_health_display}}</div>
                 {% if healthcare.eat_three_meals %}
                     <span class = 'healthcare-status done'>昨日、三食しっかり食事ができた。</span>
                 {% else %}
                   <span class = 'healthcare-status not done'>昨日、三食そろえて食事ができた。</span>
                 {% endif %}
-                <div class = 'number'>運動時間{{healthcare.exercise_time}}(min), 睡眠時間{{healthcare.sleep_time}}(h),体重{{healthcare.weight}}(kg)</div>
+                <div class = 'number'>運動時間:{{healthcare.exercise_time}}(min), 睡眠時間:{{healthcare.sleep_time}}(h),体重:{{healthcare.weight}}(kg)</div>
                 <div class = 'healthcare-memo'>{{healthcare.memo}}</div>
                 <div class='healthcare-date'>更新日{{healthcare.updated|date:"Y年m月d日 H:i:s"}}</div>
         </div>

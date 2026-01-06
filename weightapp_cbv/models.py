@@ -3,11 +3,13 @@ from django.db import models
 # Create your models here.
 class Healthcare(models.Model):
     class five_point_scale(models.IntegerChoices):
-        POOR = 1
-        Fair = 2
-        Good = 3
-        Very_Good = 4
-        Excellent = 5
+        # 日本語で用意しておくと、formで日本語でになる。
+        # poor python の定数、1 dbの値、'非常に悪い' label 人間用　AIに教えてもらった。
+        POOR = 1, '非常に悪い'
+        FAIR = 2, '悪い'
+        GOOD = 3, '普通'
+        VERY_GOOD = 4, '良い'
+        EXCELLENT = 5, '非常に良い'
     physical_health = models.IntegerField(choices=five_point_scale)
     mental_health = models.IntegerField(choices=five_point_scale)
     eat_three_meals = models.BooleanField(default=False)
