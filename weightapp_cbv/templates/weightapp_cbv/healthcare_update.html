@@ -2,18 +2,18 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>新規の記録作成</title>
+    <title>記録の更新</title>
     {% load static %}
     <link rel="stylesheet" href="{% static "weightapp_cbv/styles.css" %}">
 </head>
 <body>
     <div class='container'>
-        <h1>体調の新規記録</h1>
+        <h1>することの修正</h1>
         <hr>
        <form  method="post">
         {% csrf_token %}
         {{ form.as_p}}
-        <button type="submit" class="btn-primary">新規の記録作成</button>
+        <button type="submit" class="btn-primary">更新</button>
        </form>
        <br>
         <div class="black-button">

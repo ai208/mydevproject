@@ -21,7 +21,10 @@
                 <div class = 'number'>運動時間{{healthcare.exercise_time}}(min), 睡眠時間{{healthcare.sleep_time}}(h),体重{{healthcare.weight}}(kg)</div>
                 <div class = 'healthcare-memo'>{{healthcare.memo}}</div>
                 <div class='healthcare-date'>更新日{{healthcare.updated|date:"Y年m月d日 H:i:s"}}</div>
-                <div class = 'memo'>{{healthcare.memo}}</div>
+        </div>
+        <div class="healthcare-actions">
+            <a href="{% url "healthcare_update" healthcare.id %}"  class="btn btn-waring">更新</a>
+            <a href="{% url "healthcare_delete" healthcare.id %}"  class="btn btn-danger">削除</a>
         </div>
         <div class="black-button">
             <a href="{% url "healthcare_list" %}" class="btn btn-secondary">一覧に戻る</a>
