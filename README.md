@@ -1,6 +1,6 @@
 # Weight Management App（Django）
 ## 
-このREDEMEは生成AIに作成してもらいました。
+このREDEMEの大枠は生成AIに作成してもらいました。
 ## デプロイURL
 https://mydevproject-itqg.onrender.com/menu/
 ## 概要
