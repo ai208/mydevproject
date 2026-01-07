@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>一覧</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static "weightapp_cbv/styles.css" %}">
+    <link rel="stylesheet" href="{% static "weightapp_cbv/css/styles.css" %}">
+    <script src="{% static "weightapp_cbv/javascript/messages.js" %}"></script>
 </head>
 <body>
     <div class='container'>
@@ -13,6 +14,17 @@
         <div class="healthcare-actions">
             <a href="{% url "healthcare_create" %}"  class="btn btn-primary">新規の記録作成</a>
             <a href="{% url "menu" %}"  class="btn btn-secondary">ホームメニューへ</a>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class = 'message {% if message.tags %} {{ message.tags}} {% endif %}  '>
+                   <span>{{message}}</span>
+                   <span class = "close-btn">&times;</span>
+
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
 
         </div>
 
