@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>体調の分析</title>
+</head>
+<body>
+    <div class = 'container'>
+        <h1>体調の分析ダッシュボード</h1>
+        <hr>
+        <div class='analytics-summary'>
+            <h2>3回食事が出来ているのか？</h2>
+            <div class="status-container">
+                <div class="stat-box">
+                    <h3>全体</h3>
+                    <div class="stat-value">{{stats.total}}</div>
+                </div>
+                <div class="stat-box">
+                    <h3>三食食べた率</h3>
+                    <div class="stat-value">{{stats.eat_three_meal_rate}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="analytics-charts">
+            <h2>体調のグラフ分析</h2>
+            <img src="data:image/png;base64,{{graph}}" alt="体調の分析グラフ">
+        </div>
+        <div class="black-button">
+            <a href="{% url "healthcare_list" %}" class="btn btn-secondary">一覧に戻る</a>
+        </div>
+    </div>
+
+</body>
+</html>

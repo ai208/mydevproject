@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/edit/',views.HealthcareUpdateView.as_view(),name = 'healthcare_update'),
     ##name = はhmtl で使っているここをミスするとエラーが出た。2026年1月6日
     path('<int:pk>/delete/',views.HealthcareDeleteView.as_view(),name = 'healthcare_delete'),
+    path('analytics/',views.HealthcareAnalyticsView.as_view(),name = 'healthcare_analytics'),
 ]

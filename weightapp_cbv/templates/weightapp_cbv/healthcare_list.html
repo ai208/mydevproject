@@ -13,6 +13,7 @@
         <hr>
         <div class="healthcare-actions">
             <a href="{% url "healthcare_create" %}"  class="btn btn-primary">新規の記録作成</a>
+            <a href="{% url "healthcare_analytics" %}",class = "btn btn-info">体調の分析</a>
             <a href="{% url "menu" %}"  class="btn btn-secondary">ホームメニューへ</a>
             {% if messages %}
             <div class="messages">
