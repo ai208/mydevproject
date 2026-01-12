@@ -65,6 +65,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'weightapp',
     'weightapp_cbv',
+    'accounts.apps.AccountsConfig',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'mydevproject.urls'
@@ -147,3 +152,49 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#2026年1月12日 カスタムを使うことを知らせる。
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+#2026年1月12日
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # 一般用のメアド認証
+
+    'django.contrib.auth.backends.ModelBackend',
+    # 管理用の
+)
+# 追加した　認証ができなかった
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# メールアドレス認証の設定 古いので新しくなる
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_USERNAME_REQUIRED = False
+# サインアップにメールアドレス確認を挟むように設定
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_REQUIRED = True
+# 新しい方法
+ACCOUNT_LOGIN_METHODS = {"email"}
+
+ACCOUNT_SIGNUP_FIELDS = [
+    "email*",
+    "password1*",
+    "password2*",
+]
+
+
+
+
+#ログイン　ログアウト後の遷移先の設定
+# /menu/ で絶対パスとしたら上手くできた。
+LOGIN_REDIRECT_URL = '/menu/'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+# ワンクリックでログアウト
+ACCOUNT_LOGOUT_ON_GET = True
+
+# 確認メールの件名
+ACCOUNT_EMAIL_SUBJECT_PREFIX =''
+
+#デフォルトのメール送信元
+DEFAULT_FROM_EMAIL = os.environ.get('FROM_EMAIL')

@@ -31,6 +31,9 @@ class HealthcareCreateView(SuccessMessageMixin,CreateView):
     form_class = HealthcareForm
     success_url = reverse_lazy('healthcare_list')
     success_message = '記録が「登録」されました。'
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class HealthcareUpdateView(SuccessMessageMixin,UpdateView):
     model = models.Healthcare

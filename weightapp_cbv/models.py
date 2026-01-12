@@ -2,6 +2,7 @@ from django.db import models
 # 2026年1月9日　ch9
 import pandas as pd
 from django_pandas.io import read_frame
+from django.conf import settings # アカウントの時に付け足した。
 # Create your models here.
 class Healthcare(models.Model):
     class five_point_scale(models.IntegerChoices):
@@ -21,6 +22,12 @@ class Healthcare(models.Model):
     memo = models.TextField(null=True,blank=True,max_length=300)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    # アカウントの時に付け足した。
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='healthcare_record'
+    )
     def __str__(self):
         return self.created.strftime("%Y-%m-%d %H:%M")
     class Meta:

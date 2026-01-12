@@ -23,4 +23,6 @@ urlpatterns = [
     path('weightapp/',include('weightapp.urls')),
     path('healthcare/',include('weightapp_cbv.urls')),
     path('menu/',views.MenuPageView.as_view(),name='menu'),
+    path('accounts/',include('allauth.urls')),
+    path('',views.HomePageView.as_view(),name = 'home'),
 ]
