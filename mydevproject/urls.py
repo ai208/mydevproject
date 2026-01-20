@@ -25,4 +25,5 @@ urlpatterns = [
     path('menu/',views.MenuPageView.as_view(),name='menu'),
     path('accounts/',include('allauth.urls')),
     path('',views.HomePageView.as_view(),name = 'home'),
+    path('about/',views.AboutPageView.as_view(),name = 'about'),
 ]

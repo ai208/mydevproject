@@ -2,11 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ホーム画面</title>
+    <title>About this site</title>
     {% load static %}
     <link rel="stylesheet" href="{% static "css/main.css" %}">
     <link rel="stylesheet" href="{% static "css/menu.css" %}">
-    <script src={% static "javascript/app.js" %}></script>
 </head>
 <body>
     <div class = 'header'>
@@ -14,7 +13,6 @@
             {% if user.is_authenticated %}
             <li class = 'nav-item'>
             <a href="{% url "menu" %}"  class="btn btn-secondary">ホームメニューへ</a>
-            <a href="{% url "about" %}"  class="btn btn-secondary">Aboutへ</a>
             </li>
             {% else %}
             <li class = 'nav-item'>
@@ -22,22 +20,24 @@
             </li>
             <li class = 'nav-item'>
                 <a href=" {% url "account_login" %}">Log In</a>
-            <a href="{% url "about" %}"  class="btn btn-secondary">Aboutへ</a>
             </li>
             {% endif %}
 
         </ul>
     </div>
-    <div class="container">
-        <div class=menu-container>
-        <p>体重の計算app</p>
-        <label for="number">身長 (cm)</label>
-        <input type="float" name="height" id="height">
-        <label for="weight">体重 (kg)</label>
-        <input type="number" name="weight" id="weight">
-        <button id="btn">計算</button>
+    <div class = 'container'>
+        <div class = 'about_site'>
+            <h2>このサイトについて</h2>
+            <p>就活用のポートフォリオ作成用です。体重記録アプリを作成しようとしています。体重以外にも健康についての記録をつけるようにして、人間らしい生活に貢献できるようにしたいです。</p>
 
-        <p id = "result"></p>
+        </div>
+        <div class = 'about_me'>
+            <h2>自己紹介</h2>
+            <h3>プロフィール</h3>
+            <p>2028年度　修士卒(予定) 専攻　生物学</p>
+            {% comment %} <br> {% endcomment %}
+            <p>趣味　料理</p>
+
         </div>
     </div>
 </body>
